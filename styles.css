@@ -112,9 +112,19 @@ body {
 }
 
 .quiz__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 1rem;
     font-weight: bold;
     color: var(--secondary);
+
+    /* MAGIA STICKY AQUÍ */
+    position: sticky;
+    top: 60px; /* Se pega justo debajo de tu menú de navegación que mide 60px */
+    background-color: var(--bg); /* Toma el color de fondo de la app */
+    z-index: 90; /* Se asegura de flotar por encima de las imágenes */
+    padding: 15px 0 10px 0;
 }
 
 .quiz__text {
@@ -252,7 +262,7 @@ body {
 .quiz__timer {
     font-size: 1.2rem;
     color: var(--primary);
-    font-family: monospace; /* Fuente estilo reloj/código */
+    font-family: monospace;
     background: #eff6ff;
     padding: 0.3rem 0.8rem;
     border-radius: 0.5rem;
@@ -325,6 +335,23 @@ body {
     font-size: 0.85rem;
     display: block;
     margin-top: 0.2rem;
+}
+
+/* --- Estilo para el Cronómetro Flotante (Fixed) --- */
+.quiz__timer--fixed {
+    position: fixed;
+    top: 75px; /* Deja un margen debajo del menú superior fijo */
+    right: 15px;
+    z-index: 99;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    background-color: #fff;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem; /* Forma redonda estilo píldora */
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
 }
 
 /* --- Responsive Design (Mobile) --- */

@@ -224,6 +224,7 @@ function formatTime(seconds) {
 function startTimer() {
     dom.btnTimer.classList.add("hidden");
     dom.timerDisplay.classList.remove("hidden");
+
     state.isTimerRunning = true;
     state.timerInterval = setInterval(() => {
         state.timeElapsed++;
@@ -244,6 +245,7 @@ function resetTimer() {
     state.isTimerRunning = false;
     dom.timerDisplay.textContent = "00:00";
     dom.timerDisplay.classList.add("hidden");
+
     if (dom.btnTimer) dom.btnTimer.classList.remove("hidden");
 }
 
