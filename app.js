@@ -483,6 +483,7 @@ function navigateTo(id) {
     window.scrollTo(0, 0);
 }
 
+// Lógica de los Links
 dom.navLinks.forEach((el) => {
     el.addEventListener("click", (e) => {
         e.preventDefault();
@@ -490,10 +491,17 @@ dom.navLinks.forEach((el) => {
         if (sectionId) {
             navigateTo(sectionId);
         }
+
+        // Cerrar menú móvil al hacer clic
         dom.navMenu.classList.remove("nav__menu--active");
+        dom.navToggle.classList.remove("nav__toggle--active");
+        document.body.classList.remove("no-scroll"); // Descongelar fondo
     });
 });
 
+// Lógica del botón Hamburguesa / X
 dom.navToggle.addEventListener("click", () => {
-    dom.navMenu.classList.toggle("nav__menu--active");
+    dom.navMenu.classList.toggle("nav__menu--active"); // Entra/Sale el menú
+    dom.navToggle.classList.toggle("nav__toggle--active"); // Anima las rayas a la X
+    document.body.classList.toggle("no-scroll"); // Congela/Descongela el fondo
 });

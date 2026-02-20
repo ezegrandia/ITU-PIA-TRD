@@ -1,3 +1,6 @@
+/* =========================================
+    VARIABLES Y BASE
+   ========================================= */
 :root {
     --primary: #2563eb;
     --secondary: #64748b;
@@ -15,13 +18,20 @@ body {
     margin: 0;
 }
 
+/* Bloqueo de scroll cuando el menú móvil está abierto */
+body.no-scroll {
+    overflow: hidden;
+}
+
 .container {
     max-width: 800px;
     margin: 0 auto;
     padding: 0 1rem;
 }
 
-/* --- BEM: Header & Nav --- */
+/* =========================================
+    HEADER Y NAVEGACIÓN
+   ========================================= */
 .header {
     background: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -35,7 +45,6 @@ body {
     justify-content: space-between;
     align-items: center;
     height: 60px;
-    position: relative; /* Importante para el menú móvil absoluto */
 }
 
 .nav__logo {
@@ -63,18 +72,57 @@ body {
     color: var(--primary);
 }
 
-/* Botón Hamburguesa (Oculto en Desktop) */
+/* --- Botón Hamburguesa Animado (Oculto en PC) --- */
 .nav__toggle {
     display: none;
     background: none;
     border: none;
-    font-size: 1.8rem;
     cursor: pointer;
-    color: var(--text);
     padding: 0;
+    width: 30px;
+    height: 24px;
+    position: relative;
+    z-index: 1000; /* Siempre por encima del menú desplegado */
 }
 
-/* --- BEM: Quiz Section & Layout --- */
+.hamburger-line {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--primary);
+    position: absolute;
+    left: 0;
+    transition: all 0.3s ease-in-out;
+    border-radius: 3px;
+}
+
+/* Posiciones iniciales de las 3 rayitas */
+.hamburger-line:nth-child(1) {
+    top: 0;
+}
+.hamburger-line:nth-child(2) {
+    top: 10px;
+}
+.hamburger-line:nth-child(3) {
+    top: 20px;
+}
+
+/* Animación a la "X" cuando está activo */
+.nav__toggle--active .hamburger-line:nth-child(1) {
+    top: 10px;
+    transform: rotate(45deg);
+}
+.nav__toggle--active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+.nav__toggle--active .hamburger-line:nth-child(3) {
+    top: 10px;
+    transform: rotate(-45deg);
+}
+
+/* =========================================
+    SECCIONES Y LAYOUT GENERAL
+   ========================================= */
 .section {
     display: none;
     padding: 2rem 0;
@@ -83,6 +131,14 @@ body {
 
 .section--active {
     display: block;
+}
+
+.card {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
 }
 
 .home__title {
@@ -103,14 +159,10 @@ body {
     flex-wrap: wrap;
 }
 
-.card {
-    background: white;
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    margin-bottom: 1.5rem;
-}
-
+/* =========================================
+    QUIZ: TEXTOS, SELECTORES Y CRONÓMETRO
+   ========================================= */
+/* Cabecera pegajosa (Sticky) para no perder de vista el tiempo */
 .quiz__header {
     display: flex;
     justify-content: space-between;
@@ -119,12 +171,21 @@ body {
     font-weight: bold;
     color: var(--secondary);
 
-    /* MAGIA STICKY AQUÍ */
     position: sticky;
-    top: 60px; /* Se pega justo debajo de tu menú de navegación que mide 60px */
-    background-color: var(--bg); /* Toma el color de fondo de la app */
-    z-index: 90; /* Se asegura de flotar por encima de las imágenes */
+    top: 60px; /* Debajo del menú principal */
+    background-color: var(--bg);
+    z-index: 90;
     padding: 15px 0 10px 0;
+}
+
+.quiz__timer {
+    font-size: 1.2rem;
+    color: var(--primary);
+    font-family: monospace;
+    background: #eff6ff;
+    padding: 0.3rem 0.8rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--primary);
 }
 
 .quiz__text {
@@ -149,7 +210,9 @@ body {
     border-color: var(--primary);
 }
 
-/* --- Visores de Imagen --- */
+/* =========================================
+    QUIZ: VISORES DE IMÁGENES
+   ========================================= */
 .quiz__image-box {
     margin-top: 1.5rem;
     border: 2px dashed #cbd5e1;
@@ -195,7 +258,9 @@ body {
     display: none !important;
 }
 
-/* --- Botones --- */
+/* =========================================
+    BOTONES GENERALES
+   ========================================= */
 .quiz__controls {
     display: flex;
     flex-wrap: wrap;
@@ -219,7 +284,7 @@ body {
 }
 
 .btn:disabled {
-    opacity: 0.6;
+    opacity: 0.5;
     cursor: not-allowed;
 }
 
@@ -227,49 +292,28 @@ body {
     background: var(--primary);
     color: white;
 }
-
 .btn--danger {
     background: var(--danger);
     color: white;
 }
-
 .btn--info {
     background: var(--secondary);
     color: white;
 }
-
 .btn--outline {
     background: transparent;
     border: 2px solid var(--secondary);
     color: var(--text);
 }
 
+/* =========================================
+    RESULTADOS Y DETALLES (ACORDEÓN)
+   ========================================= */
 .results__card p {
     font-size: 1.1rem;
     margin: 0.5rem 0;
 }
 
-/* --- Estilos del Cronómetro --- */
-.quiz__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-    font-weight: bold;
-    color: var(--secondary);
-}
-
-.quiz__timer {
-    font-size: 1.2rem;
-    color: var(--primary);
-    font-family: monospace;
-    background: #eff6ff;
-    padding: 0.3rem 0.8rem;
-    border-radius: 0.5rem;
-    border: 1px solid var(--primary);
-}
-
-/* --- Estilos para Detalles de Resultados --- */
 .results__toggle-btn {
     background: var(--bg);
     border: 1px solid #cbd5e1;
@@ -295,7 +339,6 @@ body {
     border: 1px solid #e2e8f0;
     border-radius: 0.5rem;
     padding: 1rem;
-    /* Esto es la magia para que no sea larguísimo: */
     max-height: 250px;
     overflow-y: auto;
 }
@@ -337,45 +380,40 @@ body {
     margin-top: 0.2rem;
 }
 
-/* --- Estilo para el Cronómetro Flotante (Fixed) --- */
-.quiz__timer--fixed {
-    position: fixed;
-    top: 75px; /* Deja un margen debajo del menú superior fijo */
-    right: 15px;
-    z-index: 99;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    background-color: #fff;
-    border: 2px solid var(--primary);
-    color: var(--primary);
-    padding: 0.5rem 1rem;
-    border-radius: 2rem; /* Forma redonda estilo píldora */
-    font-size: 1.2rem;
-    font-weight: bold;
-    transition: all 0.3s ease;
-}
-
-/* --- Responsive Design (Mobile) --- */
+/* =========================================
+    RESPONSIVE DESIGN (MOBILE)
+   ========================================= */
 @media (max-width: 600px) {
+    /* Muestra la hamburguesa */
     .nav__toggle {
-        display: block; /* Muestra el icono hamburguesa */
+        display: block;
     }
 
+    /* Menú Overlay Pantalla Completa */
     .nav__menu {
-        display: none; /* Oculta el menú horizontal */
+        display: flex;
         flex-direction: column;
-        position: absolute;
-        top: 60px;
-        left: 0;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 100%; /* Oculto a la derecha */
         width: 100%;
-        background: #fff;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        padding: 1rem 0;
-        text-align: center;
-        gap: 1rem;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.98);
+        z-index: 999; /* Por debajo de la X (1000) */
+        transition: left 0.4s ease;
+        padding: 0;
+        gap: 2rem;
     }
 
     .nav__menu--active {
-        display: flex; /* Se activa mediante JavaScript */
+        left: 0; /* Desliza hacia adentro */
+    }
+
+    .nav__link {
+        font-size: 1.5rem;
+        font-weight: bold;
     }
 
     .home__grid {
@@ -392,6 +430,9 @@ body {
     }
 }
 
+/* =========================================
+    ANIMACIONES
+   ========================================= */
 @keyframes fadeIn {
     from {
         opacity: 0;
