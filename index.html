@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Normas IRAM - ITU PIA</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="app">
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav__logo">ITU PIA - TRD</div>
+            <button class="nav__toggle" aria-label="Abrir menú">☰</button>
+            <ul class="nav__menu">
+                <li class="nav__item"><a href="#" class="nav__link" data-section="home">Inicio</a></li>
+                <li class="nav__item"><a href="#" class="nav__link" data-section="quiz">Tipos de Líneas</a></li>
+                <li class="nav__item"><a href="#" class="nav__link">Formatos</a></li>
+                <li class="nav__item"><a href="#" class="nav__link">Rótulos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content container">
+        <section id="home" class="section section--active">
+            <h1 class="home__title">Técnicas de Representación y Diseño – ITU PIA</h1>
+            <h2 class="home__subtitle">Unidad 2: Normas IRAM</h2>
+            <div class="home__grid">
+                <button class="btn btn--primary" onclick="navigateTo('quiz')">Tipos de líneas</button>
+                <button class="btn btn--secondary" disabled>Formatos (Próximamente)</button>
+                <button class="btn btn--secondary" disabled>Rótulos (Próximamente)</button>
+            </div>
+        </section>
+
+        <section id="quiz" class="section">
+            <div class="quiz__header">
+                <span class="quiz__counter">Línea <span id="current-idx">0</span> de <span
+                        id="total-idx">0</span></span>
+
+                <div class="quiz__timer-container">
+                    <button id="btn-timer" class="btn btn--outline"
+                        style="padding: 0.3rem 0.8rem; font-size: 0.9rem;">⏱️ Cronómetro</button>
+                    <span id="timer-display" class="quiz__timer hidden">00:00</span>
+                </div>
+            </div>
+
+            <div class="quiz__question card">
+                <p class="quiz__text">
+                    La línea que se utiliza para dibujar <strong id="line-purpose" class="highlight">...</strong>
+                    se designa con el tipo de línea
+                    <select id="select-type" class="quiz__select">
+                        <option value="">Seleccionar...</option>
+                        <option value="continua">Continua</option>
+                        <option value="discontinua">Discontinua</option>
+                        <option value="raya larga y punto">Raya larga y punto</option>
+                        <option value="raya larga y doble punto">Raya larga y doble punto</option>
+                    </select>
+                    y es de espesor
+                    <select id="select-thickness" class="quiz__select">
+                        <option value="">Seleccionar...</option>
+                        <option value="fina">Fina</option>
+                        <option value="gruesa">Gruesa</option>
+                    </select>.
+                </p>
+
+                <div id="representation-container" class="quiz__image-box">
+                    <p id="placeholder-repr" class="quiz__image-placeholder">Seleccione tipo y espesor para ver
+                        representación</p>
+                    <img id="repr-img" src="" alt="Representación técnica" class="quiz__img hidden">
+                </div>
+
+                <div id="help-container" class="quiz__image-box quiz__image-box--help hidden">
+                    <p class="quiz__help-label">Imagen de Ayuda (Aplicación Real):</p>
+                    <img id="help-img" src="" alt="Ayuda de aplicación" class="quiz__img">
+                </div>
+            </div>
+
+            <div class="quiz__controls">
+                <button id="btn-prev" class="btn btn--outline">Atrás</button>
+                <button id="btn-help" class="btn btn--info">Ver imagen de ayuda</button>
+                <button id="btn-next" class="btn btn--primary">Siguiente</button>
+                <button id="btn-finish" class="btn btn--danger">Terminar</button>
+                <button id="btn-reset" class="btn btn--outline">Reset</button>
+            </div>
+        </section>
+
+        <section id="results" class="section">
+            <div class="card">
+                <h2>Resultados del Quiz</h2>
+                <div id="results-data" class="results__grid">
+                </div>
+                <button class="btn btn--primary" onclick="navigateTo('home')">Volver al Inicio</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

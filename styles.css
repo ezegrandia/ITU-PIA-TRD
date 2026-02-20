@@ -1,0 +1,377 @@
+:root {
+    --primary: #2563eb;
+    --secondary: #64748b;
+    --success: #22c55e;
+    --warning: #eab308;
+    --danger: #ef4444;
+    --bg: #f8fafc;
+    --text: #1e293b;
+}
+
+body {
+    font-family: "Segoe UI", system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    margin: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* --- BEM: Header & Nav --- */
+.header {
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    position: relative; /* Importante para el menú móvil absoluto */
+}
+
+.nav__logo {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--primary);
+}
+
+.nav__menu {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav__link {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav__link:hover {
+    color: var(--primary);
+}
+
+/* Botón Hamburguesa (Oculto en Desktop) */
+.nav__toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--text);
+    padding: 0;
+}
+
+/* --- BEM: Quiz Section & Layout --- */
+.section {
+    display: none;
+    padding: 2rem 0;
+    animation: fadeIn 0.3s ease;
+}
+
+.section--active {
+    display: block;
+}
+
+.home__title {
+    text-align: center;
+    color: var(--primary);
+}
+
+.home__subtitle {
+    text-align: center;
+    color: var(--secondary);
+    margin-bottom: 2rem;
+}
+
+.home__grid {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+}
+
+.quiz__header {
+    margin-bottom: 1rem;
+    font-weight: bold;
+    color: var(--secondary);
+}
+
+.quiz__text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.highlight {
+    color: var(--primary);
+}
+
+.quiz__select {
+    padding: 0.4rem;
+    border: 2px solid #ddd;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    margin: 0.2rem;
+    outline: none;
+}
+
+.quiz__select:focus {
+    border-color: var(--primary);
+}
+
+/* --- Visores de Imagen --- */
+.quiz__image-box {
+    margin-top: 1.5rem;
+    border: 2px dashed #cbd5e1;
+    border-radius: 0.5rem;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #f8fafc;
+    padding: 10px;
+}
+
+.quiz__image-box--help {
+    border-style: solid;
+    border-color: var(--primary);
+    background-color: #eff6ff;
+    flex-direction: column;
+}
+
+.quiz__help-label {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: var(--primary);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.quiz__image-placeholder {
+    color: var(--secondary);
+    font-style: italic;
+    text-align: center;
+}
+
+.quiz__img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* --- Botones --- */
+.quiz__controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.btn {
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition:
+        opacity 0.2s,
+        transform 0.1s;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.btn--primary {
+    background: var(--primary);
+    color: white;
+}
+
+.btn--danger {
+    background: var(--danger);
+    color: white;
+}
+
+.btn--info {
+    background: var(--secondary);
+    color: white;
+}
+
+.btn--outline {
+    background: transparent;
+    border: 2px solid var(--secondary);
+    color: var(--text);
+}
+
+.results__card p {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+}
+
+/* --- Estilos del Cronómetro --- */
+.quiz__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    color: var(--secondary);
+}
+
+.quiz__timer {
+    font-size: 1.2rem;
+    color: var(--primary);
+    font-family: monospace; /* Fuente estilo reloj/código */
+    background: #eff6ff;
+    padding: 0.3rem 0.8rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--primary);
+}
+
+/* --- Estilos para Detalles de Resultados --- */
+.results__toggle-btn {
+    background: var(--bg);
+    border: 1px solid #cbd5e1;
+    color: var(--secondary);
+    padding: 0.2rem 0.6rem;
+    border-radius: 0.3rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+    margin-left: 10px;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.results__toggle-btn:hover {
+    background: #e2e8f0;
+    color: var(--text);
+}
+
+.results__details {
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    /* Esto es la magia para que no sea larguísimo: */
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.results__item {
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 0.8rem;
+    margin-bottom: 0.8rem;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.results__item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.results__item-title {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.3rem;
+    color: var(--text);
+}
+
+.text--success {
+    color: var(--success);
+    font-weight: bold;
+}
+.text--danger {
+    color: var(--danger);
+    font-weight: bold;
+    text-decoration: line-through;
+}
+.text--correct-hint {
+    color: var(--secondary);
+    font-size: 0.85rem;
+    display: block;
+    margin-top: 0.2rem;
+}
+
+/* --- Responsive Design (Mobile) --- */
+@media (max-width: 600px) {
+    .nav__toggle {
+        display: block; /* Muestra el icono hamburguesa */
+    }
+
+    .nav__menu {
+        display: none; /* Oculta el menú horizontal */
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        padding: 1rem 0;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .nav__menu--active {
+        display: flex; /* Se activa mediante JavaScript */
+    }
+
+    .home__grid {
+        display: grid;
+        gap: 1rem;
+    }
+
+    .quiz__controls {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
