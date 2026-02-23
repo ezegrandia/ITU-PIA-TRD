@@ -275,6 +275,13 @@ function renderQuestion() {
     dom.selectType.value = saved ? saved.type : "";
     dom.selectThickness.value = saved ? saved.thickness : "";
 
+    // LÓGICA NUEVA: Bloquear o desbloquear al cargar la pregunta
+    if (dom.selectType.value === "raya larga y doble punto") {
+        dom.selectThickness.disabled = true;
+    } else {
+        dom.selectThickness.disabled = false;
+    }
+
     // Resetear panel de ayuda
     state.isHelpVisible = false;
     dom.containerHelp.classList.add("hidden");
@@ -317,7 +324,18 @@ function showHelpImage() {
 
 // --- 5. EVENTOS DEL QUIZ ---
 
-dom.selectType.addEventListener("change", updateRepresentationImage);
+dom.selectType.addEventListener("change", () => {
+    // Si elige "raya larga y doble punto", fuerza "fina" y BLOQUEA el selector
+    if (dom.selectType.value === "raya larga y doble punto") {
+        dom.selectThickness.value = "fina";
+        dom.selectThickness.disabled = true;
+    } else {
+        // Si elige cualquier otra, DESBLOQUEA el selector
+        dom.selectThickness.disabled = false;
+    }
+
+    updateRepresentationImage();
+});
 dom.selectThickness.addEventListener("change", updateRepresentationImage);
 
 dom.btnNext.addEventListener("click", () => {

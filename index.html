@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Normas IRAM - ITU PIA</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="rotulos.css">
 </head>
 
 <body class="app">
@@ -21,7 +22,7 @@
                 <li class="nav__item"><a href="#" class="nav__link" data-section="home">Inicio</a></li>
                 <li class="nav__item"><a href="#" class="nav__link" data-section="quiz">Tipos de Líneas</a></li>
                 <li class="nav__item"><a href="#" class="nav__link">Formatos</a></li>
-                <li class="nav__item"><a href="#" class="nav__link">Rótulos</a></li>
+                <li class="nav__item"><a href="#" class="nav__link" data-section="rotulos-module">Rótulos</a></li>
             </ul>
         </nav>
     </header>
@@ -33,7 +34,7 @@
             <div class="home__grid">
                 <button class="btn btn--primary" onclick="navigateTo('quiz')">Tipos de líneas</button>
                 <button class="btn btn--secondary" disabled>Formatos (Próximamente)</button>
-                <button class="btn btn--secondary" disabled>Rótulos (Próximamente)</button>
+                <button class="btn btn--primary" onclick="navigateTo('rotulos-module')">Rótulos</button>
             </div>
         </section>
 
@@ -97,9 +98,251 @@
                 <button class="btn btn--primary" onclick="navigateTo('home')">Volver al Inicio</button>
             </div>
         </section>
+
+        <section id="rotulos-module" class="section">
+            <div class="card">
+                <h2 style="color: var(--primary); text-align: center;">Práctica de Rótulos</h2>
+                <p style="text-align: center; color: var(--secondary); margin-bottom: 2rem;">
+                    Completa los campos en blanco con el texto o medida correspondiente. Lo que no sepas, déjalo en
+                    blanco.
+                </p>
+
+                <div id="rotulo-view-1" class="rotulo-view active">
+                    <h3 class="rotulo-title">1. Rótulo General</h3>
+                    <div class="rotulo-scroll-wrapper">
+                        <div class="rotulo-wrapper">
+                            <div class="dim-width">
+                                <textarea class="eval-input" data-name="Ancho" data-answer="175|175mm|175 mm"
+                                    placeholder="Ancho?"></textarea>
+                            </div>
+                            <div class="dim-height">
+                                <textarea class="eval-input" data-name="Alto" data-answer="60|60mm|60 mm"
+                                    placeholder="Alto?"></textarea>
+                            </div>
+
+                            <div class="r1-grid">
+                                <div class="r-cell" style="grid-area: 1/1/8/2"><textarea class="eval-input"
+                                        data-name="Casillero 1" data-answer="tolerancias generales|tolerancia general"
+                                        placeholder="..."></textarea></div>
+
+                                <div class="r-cell" style="grid-area: 1/2/2/3"><textarea class="eval-input"
+                                        data-name="Casillero 2.1.1" data-answer="proyecto|proyectó"
+                                        placeholder="..."></textarea></div>
+                                <div class="r-cell" style="grid-area: 2/2/3/3"><textarea class="eval-input"
+                                        data-name="Casillero 2.2.1" data-answer="dibujo|dibujó"
+                                        placeholder="..."></textarea></div>
+                                <div class="r-cell" style="grid-area: 3/2/4/3"><textarea class="eval-input"
+                                        data-name="Casillero 2.3.1" data-answer="reviso|revisó"
+                                        placeholder="..."></textarea></div>
+                                <div class="r-cell" style="grid-area: 4/2/5/3"><textarea class="eval-input"
+                                        data-name="Casillero 2.4.1" data-answer="aprobo|aprobó"
+                                        placeholder="..."></textarea></div>
+
+                                <div class="r-cell" style="grid-area: 1/3/2/4"><textarea class="eval-input"
+                                        data-name="Casillero 2.1.2" data-answer="fecha" placeholder="..."></textarea>
+                                </div>
+                                <div class="r-cell" style="grid-area: 2/3/3/4"><textarea class="eval-input"
+                                        data-name="Casillero 2.2.2" data-answer="fecha" placeholder="..."></textarea>
+                                </div>
+                                <div class="r-cell" style="grid-area: 3/3/4/4"><textarea class="eval-input"
+                                        data-name="Casillero 2.3.2" data-answer="fecha" placeholder="..."></textarea>
+                                </div>
+                                <div class="r-cell" style="grid-area: 4/3/5/4"><textarea class="eval-input"
+                                        data-name="Casillero 2.4.2" data-answer="fecha" placeholder="..."></textarea>
+                                </div>
+
+                                <div class="r-cell" style="grid-area: 1/4/2/5"><textarea class="eval-input"
+                                        data-name="Casillero 2.1.3" data-answer="nombre 1|nombre"
+                                        placeholder="..."></textarea></div>
+                                <div class="r-cell" style="grid-area: 2/4/3/5"><textarea class="eval-input"
+                                        data-name="Casillero 2.2.3" data-answer="nombre 2|nombre"
+                                        placeholder="..."></textarea></div>
+                                <div class="r-cell" style="grid-area: 3/4/4/5"><textarea class="eval-input"
+                                        data-name="Casillero 2.3.3" data-answer="nombre 3|nombre"
+                                        placeholder="..."></textarea></div>
+                                <div class="r-cell" style="grid-area: 4/4/5/5"><textarea class="eval-input"
+                                        data-name="Casillero 2.4.3" data-answer="nombre 4|nombre"
+                                        placeholder="..."></textarea></div>
+
+                                <div class="r-cell" style="grid-area: 1/5/5/6"><textarea class="eval-input"
+                                        data-name="Casillero 7" data-answer="cliente" placeholder="..."></textarea>
+                                </div>
+
+                                <div class="r-cell" style="grid-area: 1/6/3/8"><textarea class="eval-input"
+                                        style="font-size: 0.75rem;" data-name="Casillero 8"
+                                        data-answer="clave o numero de lo representado|clave o numero|clave|numero de lo representado|numero|número|clave de lo representado"
+                                        placeholder="..."></textarea></div>
+                                <div class="r-cell" style="grid-area: 3/6/5/8"><textarea class="eval-input"
+                                        style="font-size: 0.75rem;" data-name="Casillero 9"
+                                        data-answer="nombre archivo informatico|nombre archivo informático|archivo informatico|nombre de archivo|nombre archivo|nombre del archivo|nombre de archivo informatico|nombre del archivo informatico"
+                                        placeholder="..."></textarea></div>
+
+                                <div class="r-cell" style="grid-area: 5/2/6/3"><textarea class="eval-input"
+                                        data-name="Casillero 3" data-answer="escala" placeholder="..."></textarea></div>
+                                <div class="r-cell" style="grid-area: 6/2/7/3"><textarea class="eval-input"
+                                        data-name="Casillero 4"
+                                        data-answer="metodo iso e|método iso e|metodo iso|iso e|metodo|método"
+                                        placeholder="..."></textarea></div>
+                                <div class="r-cell" style="grid-area: 7/2/8/3"><textarea class="eval-input"
+                                        data-name="Casillero 5" data-answer="formato" placeholder="..."></textarea>
+                                </div>
+
+                                <div class="r-cell" style="grid-area: 5/3/8/6"><textarea class="eval-input main-title"
+                                        data-name="Casillero 6" data-answer="denominacion|denominación"
+                                        placeholder="..."></textarea></div>
+
+                                <div class="r-cell" style="grid-area: 5/6/6/8"><textarea class="eval-input"
+                                        data-name="Casillero 10"
+                                        data-answer="logo o nombre de empresa|logo|nombre de empresa|logo o nombre|empresa|logo o empresa|sigla|sigla o empresa"
+                                        placeholder="..."></textarea></div>
+                                <div class="r-cell" style="grid-area: 6/6/7/8"><textarea class="eval-input"
+                                        data-name="Casillero 11"
+                                        data-answer="n plano cliente|nro plano cliente|numero plano cliente|n° plano cliente|nº plano cliente|n plano de cliente|n plano del cliente|n de plano cliente|n de plano de cliente|nro plano de cliente"
+                                        placeholder="..."></textarea></div>
+                                <div class="r-cell" style="grid-area: 7/6/8/7"><textarea class="eval-input"
+                                        data-name="Casillero 12"
+                                        data-answer="n plano|nro plano|numero plano|n° plano|nº plano|n de plano|n del plano|nro de plano|numero de plano"
+                                        placeholder="..."></textarea></div>
+                                <div class="r-cell" style="grid-area: 7/7/8/8"><textarea class="eval-input"
+                                        data-name="Casillero 13"
+                                        data-answer="pag|pág|pagina|página|numero de paginas|numero de pagina"
+                                        placeholder="..."></textarea></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="rotulo-view-2" class="rotulo-view hidden">
+                    <h3 class="rotulo-title">2. Rótulo Despiece (Lista de Materiales)</h3>
+                    <div class="rotulo-scroll-wrapper">
+                        <div class="rotulo-wrapper">
+                            <div class="r2-grid">
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+
+                                <div class="r-cell r-header"><textarea class="eval-input" data-name="Casillero 1"
+                                        data-answer="pos|posicion|posición" placeholder="..."></textarea></div>
+                                <div class="r-cell r-header"><textarea class="eval-input" data-name="Casillero 2"
+                                        data-answer="cant|cantidad" placeholder="..."></textarea></div>
+                                <div class="r-cell r-header"><textarea class="eval-input" data-name="Casillero 3"
+                                        data-answer="denominacion|denominación" placeholder="..."></textarea></div>
+                                <div class="r-cell r-header"><textarea class="eval-input" data-name="Casillero 4"
+                                        data-answer="n plano|nro plano|numero plano|n° plano|nº plano"
+                                        placeholder="..."></textarea></div>
+                                <div class="r-cell r-header"><textarea class="eval-input" data-name="Casillero 5"
+                                        data-answer="n de pieza|nro de pieza|numero de pieza|n° de pieza|n pieza|n° pieza|nº de pieza|nº pieza"
+                                        placeholder="..."></textarea></div>
+                                <div class="r-cell r-header"><textarea class="eval-input" data-name="Casillero 6"
+                                        data-answer="material" placeholder="..."></textarea></div>
+                                <div class="r-cell r-header"><textarea class="eval-input" data-name="Casillero 7"
+                                        data-answer="masa|peso" placeholder="..."></textarea></div>
+                                <div class="r-cell r-header"><textarea class="eval-input" data-name="Casillero 8"
+                                        data-answer="observaciones|observacion" placeholder="..."></textarea></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="rotulo-view-3" class="rotulo-view hidden">
+                    <h3 class="rotulo-title">3. Rótulo Lista de Modificaciones</h3>
+                    <div class="rotulo-scroll-wrapper">
+                        <div class="rotulo-wrapper">
+                            <div class="dim-width">
+                                <textarea class="eval-input" data-name="Ancho" data-answer="138|138mm|138 mm"
+                                    placeholder="Ancho?"></textarea>
+                            </div>
+                            <div class="r3-grid">
+                                <div class="r-cell" style="grid-column: 1/-1;"><textarea class="eval-input"
+                                        data-name="Título Central" data-answer="modificaciones|lista de modificaciones"
+                                        placeholder="..."></textarea></div>
+
+                                <div class="r-cell r-header"><textarea class="eval-input" data-name="Casillero 1"
+                                        data-answer="n mod|nro mod|numero mod|n° mod|nº mod|n de mod"
+                                        placeholder="..."></textarea></div>
+                                <div class="r-cell r-header"><textarea class="eval-input" data-name="Casillero 2"
+                                        data-answer="descripcion|descripción" placeholder="..."></textarea></div>
+                                <div class="r-cell r-header"><textarea class="eval-input" data-name="Casillero 3"
+                                        data-answer="origen" placeholder="..."></textarea></div>
+                                <div class="r-cell r-header"><textarea class="eval-input" data-name="Casillero 4"
+                                        data-answer="fecha" placeholder="..."></textarea></div>
+                                <div class="r-cell r-header"><textarea class="eval-input" data-name="Casillero 5"
+                                        data-answer="dib|dibujo|dib." placeholder="..."></textarea></div>
+                                <div class="r-cell r-header"><textarea class="eval-input" data-name="Casillero 6"
+                                        data-answer="rev|reviso|revisó|rev." placeholder="..."></textarea></div>
+                                <div class="r-cell r-header"><textarea class="eval-input" data-name="Casillero 7"
+                                        data-answer="apr|aprobo|aprobó|apr." placeholder="..."></textarea></div>
+
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                                <div class="r-cell blank-cell"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quiz__controls" style="margin-top: 2rem;">
+                    <button id="btn-rotulo-prev" class="btn btn--outline hidden">Atrás</button>
+                    <button id="btn-rotulo-clear" class="btn btn--outline">Limpiar Rótulo</button>
+                    <button id="btn-rotulo-next" class="btn btn--primary">Siguiente</button>
+                    <button id="btn-rotulo-finish" class="btn btn--danger">Terminar</button>
+                    <button id="btn-rotulo-reset" class="btn btn--outline hidden">Reiniciar</button>
+                </div>
+
+                <div id="rotulos-results" class="results__details hidden" style="margin-top: 1.5rem;"></div>
+            </div>
+        </section>
     </main>
 
     <script src="app.js"></script>
+    <script src="rotulos.js"></script>
 </body>
 
 </html>
