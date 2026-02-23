@@ -205,3 +205,16 @@
     background-color: #f1f5f9;
     color: #94a3b8;
 }
+
+/* Controles */
+.quiz__controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+}
+@media (max-width: 600px) {
+    .quiz__controls {
+        flex-direction: column;
+    }
+}
