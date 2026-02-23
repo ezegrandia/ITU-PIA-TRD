@@ -47,13 +47,13 @@ const LINE_DATA = [
     {
         type: "continua",
         thickness: "fina",
-        purpose: "Línea de interrupción a mano alzada fina continua",
+        purpose: "Línea de interrupción a mano alzada",
         image: "interrupcion-mano-alzada.png",
     },
     {
         type: "continua",
         thickness: "fina",
-        purpose: "Línea de interrupción en zigzag fina continua",
+        purpose: "Línea de interrupción en zigzag",
         image: "interrupcion-zigzag.png",
     },
 
@@ -109,7 +109,7 @@ const LINE_DATA = [
     {
         type: "raya larga y punto",
         thickness: "gruesa",
-        purpose: "Indicación de áreas requeridas de tratamiento superficial",
+        purpose: "Indicación de áreas requeridas (limitadas) de tratamiento superficial",
         image: "areas-tratamiento-superficial.png",
     },
     {
