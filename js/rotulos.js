@@ -195,3 +195,31 @@ domRotulos.btnReset.addEventListener("click", () => {
 });
 
 updateRotuloView();
+
+// --- Lógica para saltar de celda con la tecla ENTER ---
+
+// Escuchamos el evento 'keydown' en todo el documento
+document.addEventListener("keydown", function (e) {
+    // Verificamos si la tecla presionada es ENTER y si el elemento actual es un eval-input
+    if (e.key === "Enter" && e.target.classList.contains("eval-input")) {
+        // Evitamos que el ENTER cree un salto de línea dentro del textarea
+        e.preventDefault();
+
+        // Obtenemos todos los inputs que NO son de solo lectura y están visibles
+        const currentView = domRotulos.views[rotuloState.current - 1];
+        const inputs = Array.from(currentView.querySelectorAll(".eval-input:not([readonly])"));
+
+        // Buscamos el índice del campo donde estamos parados
+        const index = inputs.indexOf(e.target);
+
+        // Si existe un siguiente campo, le damos el foco
+        if (index > -1 && index < inputs.length - 1) {
+            inputs[index + 1].focus();
+        } else if (index === inputs.length - 1) {
+            // Opcional: Si es el último campo, al tocar ENTER pasa al siguiente rótulo
+            // o simplemente quita el foco (descomenta la línea de abajo si quieres que salte de página)
+            // domRotulos.btnNext.click();
+            e.target.blur();
+        }
+    }
+});
