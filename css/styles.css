@@ -1,5 +1,5 @@
 /* =========================================
-    VARIABLES Y BASE
+    VARIABLES Y BASE GLOBALES
    ========================================= */
 :root {
     --primary: #2563eb;
@@ -18,7 +18,6 @@ body {
     margin: 0;
 }
 
-/* Bloqueo de scroll cuando el menú móvil está abierto */
 body.no-scroll {
     overflow: hidden;
 }
@@ -27,6 +26,10 @@ body.no-scroll {
     max-width: 800px;
     margin: 0 auto;
     padding: 0 1rem;
+}
+
+a {
+    text-decoration: none;
 }
 
 /* =========================================
@@ -72,7 +75,7 @@ body.no-scroll {
     color: var(--primary);
 }
 
-/* --- Botón Hamburguesa Animado (Oculto en PC) --- */
+/* Botón Hamburguesa */
 .nav__toggle {
     display: none;
     background: none;
@@ -82,7 +85,7 @@ body.no-scroll {
     width: 30px;
     height: 24px;
     position: relative;
-    z-index: 1000; /* Siempre por encima del menú desplegado */
+    z-index: 1000;
 }
 
 .hamburger-line {
@@ -95,8 +98,6 @@ body.no-scroll {
     transition: all 0.3s ease-in-out;
     border-radius: 3px;
 }
-
-/* Posiciones iniciales de las 3 rayitas */
 .hamburger-line:nth-child(1) {
     top: 0;
 }
@@ -107,7 +108,6 @@ body.no-scroll {
     top: 20px;
 }
 
-/* Animación a la "X" cuando está activo */
 .nav__toggle--active .hamburger-line:nth-child(1) {
     top: 10px;
     transform: rotate(45deg);
@@ -121,14 +121,13 @@ body.no-scroll {
 }
 
 /* =========================================
-    SECCIONES Y LAYOUT GENERAL
+    LAYOUT GENERAL Y BOTONES
    ========================================= */
 .section {
     display: none;
     padding: 2rem 0;
     animation: fadeIn 0.3s ease;
 }
-
 .section--active {
     display: block;
 }
@@ -141,133 +140,6 @@ body.no-scroll {
     margin-bottom: 1.5rem;
 }
 
-.home__title {
-    text-align: center;
-    color: var(--primary);
-}
-
-.home__subtitle {
-    text-align: center;
-    color: var(--secondary);
-    margin-bottom: 2rem;
-}
-
-.home__grid {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-/* =========================================
-    QUIZ: TEXTOS, SELECTORES Y CRONÓMETRO
-   ========================================= */
-/* Cabecera pegajosa (Sticky) para no perder de vista el tiempo */
-.quiz__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-    font-weight: bold;
-    color: var(--secondary);
-
-    position: sticky;
-    top: 60px; /* Debajo del menú principal */
-    background-color: var(--bg);
-    z-index: 90;
-    padding: 15px 0 10px 0;
-}
-
-.quiz__timer {
-    font-size: 1.2rem;
-    color: var(--primary);
-    font-family: monospace;
-    background: #eff6ff;
-    padding: 0.3rem 0.8rem;
-    border-radius: 0.5rem;
-    border: 1px solid var(--primary);
-}
-
-.quiz__text {
-    font-size: 1.1rem;
-    line-height: 1.6;
-}
-
-.highlight {
-    color: var(--primary);
-}
-
-.quiz__select {
-    padding: 0.4rem;
-    border: 2px solid #ddd;
-    border-radius: 0.5rem;
-    font-size: 1rem;
-    margin: 0.2rem;
-    outline: none;
-}
-
-.quiz__select:focus {
-    border-color: var(--primary);
-}
-
-/* =========================================
-    QUIZ: VISORES DE IMÁGENES
-   ========================================= */
-.quiz__image-box {
-    margin-top: 1.5rem;
-    border: 2px dashed #cbd5e1;
-    border-radius: 0.5rem;
-    min-height: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    background-color: #f8fafc;
-    padding: 10px;
-}
-
-.quiz__image-box--help {
-    border-style: solid;
-    border-color: var(--primary);
-    background-color: #eff6ff;
-    flex-direction: column;
-}
-
-.quiz__help-label {
-    font-size: 0.85rem;
-    font-weight: bold;
-    color: var(--primary);
-    margin-bottom: 8px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.quiz__image-placeholder {
-    color: var(--secondary);
-    font-style: italic;
-    text-align: center;
-}
-
-.quiz__img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 4px;
-}
-
-.hidden {
-    display: none !important;
-}
-
-/* =========================================
-    BOTONES GENERALES
-   ========================================= */
-.quiz__controls {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    justify-content: center;
-}
-
 .btn {
     border: none;
     padding: 0.8rem 1.5rem;
@@ -278,11 +150,9 @@ body.no-scroll {
         opacity 0.2s,
         transform 0.1s;
 }
-
 .btn:active {
     transform: scale(0.98);
 }
-
 .btn:disabled {
     opacity: 0.5;
     cursor: not-allowed;
@@ -305,9 +175,13 @@ body.no-scroll {
     border: 2px solid var(--secondary);
     color: var(--text);
 }
+.btn--secondary {
+    background: var(--secondary);
+    color: white;
+}
 
 /* =========================================
-    RESULTADOS Y DETALLES (ACORDEÓN)
+    RESULTADOS Y ACORDEÓN (Usado en ambos módulos)
    ========================================= */
 .results__card p {
     font-size: 1.1rem;
@@ -326,7 +200,6 @@ body.no-scroll {
     font-weight: 600;
     transition: all 0.2s;
 }
-
 .results__toggle-btn:hover {
     background: #e2e8f0;
     color: var(--text);
@@ -350,13 +223,11 @@ body.no-scroll {
     font-size: 0.95rem;
     line-height: 1.4;
 }
-
 .results__item:last-child {
     border-bottom: none;
     margin-bottom: 0;
     padding-bottom: 0;
 }
-
 .results__item-title {
     font-weight: 600;
     display: block;
@@ -380,16 +251,18 @@ body.no-scroll {
     margin-top: 0.2rem;
 }
 
+/* Utilidad global para ocultar elementos */
+.hidden {
+    display: none !important;
+}
+
 /* =========================================
     RESPONSIVE DESIGN (MOBILE)
    ========================================= */
 @media (max-width: 600px) {
-    /* Muestra la hamburguesa */
     .nav__toggle {
         display: block;
     }
-
-    /* Menú Overlay Pantalla Completa */
     .nav__menu {
         display: flex;
         flex-direction: column;
@@ -397,42 +270,27 @@ body.no-scroll {
         align-items: center;
         position: fixed;
         top: 0;
-        left: 100%; /* Oculto a la derecha */
+        left: 100%;
         width: 100%;
         height: 100vh;
         background: rgba(255, 255, 255, 0.98);
-        z-index: 999; /* Por debajo de la X (1000) */
+        z-index: 999;
         transition: left 0.4s ease;
         padding: 0;
         gap: 2rem;
     }
-
     .nav__menu--active {
-        left: 0; /* Desliza hacia adentro */
+        left: 0;
     }
-
     .nav__link {
         font-size: 1.5rem;
         font-weight: bold;
     }
-
-    .home__grid {
-        display: grid;
-        gap: 1rem;
-    }
-
-    .quiz__controls {
-        flex-direction: column;
-    }
-
     .btn {
         width: 100%;
     }
 }
 
-/* =========================================
-    ANIMACIONES
-   ========================================= */
 @keyframes fadeIn {
     from {
         opacity: 0;

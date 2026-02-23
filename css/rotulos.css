@@ -94,23 +94,28 @@
     border-bottom: 1px solid var(--danger);
 }
 
-/* Grillas Base */
+/* =========================================
+   GRILLAS Y BORDES (Técnica Anti-Difuminado)
+   ========================================= */
+
 .r1-grid,
 .r2-grid,
 .r3-grid {
     display: grid;
-    background-color: #000;
-    border: 2px solid #000;
-    gap: 1px;
+    /* Borde grueso exterior (sumado al borde de las celdas cierra en 2px perfecto) */
+    border-top: 2px solid #000;
+    border-left: 2px solid #000;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
 }
 
-/* Rótulo 1 (Actualizado con altura estricta para forzar la proporción) */
+/* Rótulo 1 */
 .r1-grid {
     grid-template-columns: 26fr 20fr 13fr 20fr 41fr 45fr 10fr;
     grid-template-rows: 5fr 5fr 5fr 5fr 20fr 10fr 10fr;
     aspect-ratio: 175 / 60;
     width: 700px;
-    height: 240px; /* Forzamos la altura a 4 veces los 60mm */
+    height: 240px;
 }
 
 /* Grilla Rótulo 2 (Lista de Materiales) - Invertimos las filas */
@@ -121,6 +126,7 @@
     height: 120px;
 }
 
+/* Grilla Rótulo 3 */
 .r3-grid {
     grid-template-columns: 25fr 40fr 25fr 12fr 12fr 12fr 12fr;
     grid-template-rows: 1fr 1fr repeat(3, 1fr);
@@ -135,14 +141,19 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    min-height: 0; /* Evita que el texto empuje y deforme la grilla */
+    min-height: 0;
     min-width: 0;
     overflow: hidden;
+
+    /* Obligamos al navegador a renderizar líneas exactas de 1px */
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+    box-sizing: border-box;
 }
 
 /* Celdas apagadas (Estéticas) */
 .blank-cell {
-    background-color: #e2e8f0; /* Color gris más oscuro para efecto "apagado" */
+    background-color: #e2e8f0;
 }
 
 /* TEXTAREA */
@@ -153,9 +164,9 @@
     text-align: center;
     outline: none;
     font-family: monospace;
-    font-size: 0.75rem; /* Letra un poco más chica */
-    line-height: 1.1; /* Interlineado más ajustado */
-    padding: 2px; /* Menos espacio de relleno */
+    font-size: 0.75rem;
+    line-height: 1.1;
+    padding: 2px;
     background: transparent;
     transition: all 0.3s;
     resize: none;

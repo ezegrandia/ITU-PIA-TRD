@@ -479,7 +479,10 @@ function finishQuiz() {
             ${timeHtml}
         </div>
     `;
-    navigateTo("results");
+    // navigateTo("results");
+    document.getElementById("quiz").classList.remove("section--active");
+    document.getElementById("results").classList.add("section--active");
+    window.scrollTo(0, 0);
 }
 
 // Función global (agregada al final) para desplegar los detalles
@@ -492,34 +495,4 @@ window.toggleDetails = function (id) {
     }
 };
 
-// --- 6. NAVEGACIÓN Y MENÚ HAMBURGUESA ---
-
-function navigateTo(id) {
-    document.querySelectorAll(".section").forEach((s) => s.classList.remove("section--active"));
-    document.getElementById(id).classList.add("section--active");
-    if (id === "quiz") initQuiz();
-    window.scrollTo(0, 0);
-}
-
-// Lógica de los Links
-dom.navLinks.forEach((el) => {
-    el.addEventListener("click", (e) => {
-        e.preventDefault();
-        const sectionId = el.dataset.section;
-        if (sectionId) {
-            navigateTo(sectionId);
-        }
-
-        // Cerrar menú móvil al hacer clic
-        dom.navMenu.classList.remove("nav__menu--active");
-        dom.navToggle.classList.remove("nav__toggle--active");
-        document.body.classList.remove("no-scroll"); // Descongelar fondo
-    });
-});
-
-// Lógica del botón Hamburguesa / X
-dom.navToggle.addEventListener("click", () => {
-    dom.navMenu.classList.toggle("nav__menu--active"); // Entra/Sale el menú
-    dom.navToggle.classList.toggle("nav__toggle--active"); // Anima las rayas a la X
-    document.body.classList.toggle("no-scroll"); // Congela/Descongela el fondo
-});
+initQuiz();
