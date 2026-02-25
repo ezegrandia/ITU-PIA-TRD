@@ -1,0 +1,79 @@
+/* =========================================
+   MÓDULO DE FORMATOS (Estilos Específicos)
+   ========================================= */
+
+.question-wrapper {
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5rem 0;
+}
+
+.format-dim-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+    font-size: 1.2rem;
+    color: var(--secondary);
+    font-weight: bold;
+}
+
+.format-input {
+    width: 80px;
+    padding: 10px;
+    border: 2px solid #cbd5e1;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 1.1rem;
+    outline: none;
+    transition: all 0.2s;
+    font-family: monospace;
+}
+
+.format-input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.relation-text {
+    font-size: 1.2rem;
+    line-height: 2;
+    text-align: center;
+}
+
+.relation-input {
+    width: 70px;
+    padding: 5px;
+    border: 2px solid #cbd5e1;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 1.1rem;
+    margin: 0 5px;
+    outline: none;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+.relation-input:focus {
+    border-color: var(--primary);
+}
+
+.quiz__controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+/* Ocultar flechas de los inputs number */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
